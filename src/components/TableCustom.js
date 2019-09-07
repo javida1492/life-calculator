@@ -9,31 +9,33 @@ class TableCustom extends Component {
     this.state = {
       tableData
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.onCellChange = this.onCellChange.bind(this);
   }
 
   handleChange(event) {
     console.log("onChange Event");
   }
 
-  onCellChange = (index, value, tableNum) => {
-    console.log("index: ", index, "| value: ", value);
+  onCellChange = (index, value, tableNum, e) => {
+    //console.log("index: ", index, "| value: ", value);
     if (tableNum === 1) {
       let data = [...this.state.tableData.tableData1];
-      console.log(data[index].fixedCosts);
+      //console.log(data[index].fixedCosts);
       //data[index].fixedCosts = value;
 
       if (index !== 10) {
         data[index].fixedCosts = value;
-        this.setState({ data }); //update fixedCost cell value at index
+        //this.setState({ data }); //update fixedCost cell value at index
 
         let total = 0;
+        data[10].fixedCosts = total;
+
         for (var i = 0; i < data.length - 1; i++) {
           total += data[i].fixedCosts; //Update new total
         }
         data[10].fixedCosts = total;
-        
-        this.setState({ data });
+
+        this.setState({data});
       }
     }
   };
@@ -57,7 +59,7 @@ class TableCustom extends Component {
                     margin: "0 8px 0",
                     borderBottom: "none"
                   }}
-                  onChange={e => this.onCellChange(index, e.target.value, 1)}
+                  onChange={e => this.onCellChange(index, parseInt(e.target.value), 1)}
                 />
               </td>
             </tr>
