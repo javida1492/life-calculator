@@ -1,37 +1,9 @@
 import React, { Component } from "react";
-import Expenses from "./components/Expenses";
 import Table from "./components/Table";
+import TableCustom from "./components/TableCustom";
 import Image from "react-image-resizer";
 
 import logo from "./image1.png";
-/*
-class App extends Component {
-  render() {
-    return (
-      <div className="container">
-        <Image
-          height={120}
-          width={720}
-          src={logo}
-          alt={"logo"}
-          style={{ position: "center" }}
-        />
-        <h1 style={{textAlign: "center"}}>Life Calculator</h1>
-        <div
-          style={{ height: "100px", width: "400px", display: "inline-grid", padding: "30px"}}
-        >
-          <Expenses />
-        </div>
-        <div
-          style={{ height: "100px", width: "400px", display: "inline-grid", padding: "30px" }}
-        >
-          <Expenses />
-        </div>
-      </div>
-    );
-  }
-}
-*/
 
 class App extends Component {
   render() {
@@ -42,12 +14,12 @@ class App extends Component {
           width={750}
           src={logo}
           alt={"logo"}
-          style={{ left: "550px" }}
+          style={{ left: "550px", align: "center" }}
         />
-        <h1 align="center" style={{ margin: "0 0 2rem 0", fontWeight: "500" }}>
+        <h1 id="title" align="center" style={{ margin: "0 0 2rem 0", fontWeight: "500" }}>
           Ideal Life Calculator
         </h1>
-        <Table/>
+        <TableCustom />
       </div>
     );
   }
