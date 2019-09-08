@@ -21,7 +21,7 @@ class TableCustom extends Component {
     if (tableNum === 1) {
       let data = [...this.state.tableData.tableData1];
       //console.log(data[index].fixedCosts);
-      //data[index].fixedCosts = value;
+      data[index].fixedCosts = value;
 
       if (index !== 10) {
         data[index].fixedCosts = value;
@@ -59,7 +59,8 @@ class TableCustom extends Component {
                     margin: "0 8px 0",
                     borderBottom: "none"
                   }}
-                  onChange={e => this.onCellChange(index, parseInt(e.target.value), 1)}
+                  step=".01"
+                  onChange={e => this.onCellChange(index, parseFloat(e.target.value), 1)}
                 />
               </td>
             </tr>

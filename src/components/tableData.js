@@ -10,7 +10,7 @@ export default {
     { category: "Clothes", fixedCosts: 1000 },
     { category: "Subscriptions", fixedCosts: 1000 },
     { category: "Car Insurance", fixedCosts: 400 },
-    { category: "Total", fixedCosts: 35400 }
+    { category: "Total", total: 35400 }
   ],
   tableData2: [
     {
