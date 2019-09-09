@@ -10,70 +10,70 @@ export default {
     { category: "Clothes", fixedCosts: 1000 },
     { category: "Subscriptions", fixedCosts: 1000 },
     { category: "Car Insurance", fixedCosts: 400 },
-    { category: "Total", total: 35400 }
+    { category: "Total", fixedCosts: 35400 }
   ],
   tableData2: [
     {
       monthlySpendingCategories: "Fixed Costs",
-      monthlySpendingGoals: "$10,000.00",
-      monthlyIncome: "$20,000.00",
-      personalAnnualIncome: "$240,000"
+      monthlySpendingGoals: 10000,
+      monthlyIncome: 20000,
+      personalAnnualIncome: 240000
     },
     {
       monthlySpendingCategories: "Long Term Investments",
-      monthlySpendingGoals: "$2,000.00",
-      recommendedMonthlyIncome: "$72,800.00"
+      monthlySpendingGoals: 2000,
+      recommendedMonthlyIncome: 72800
     },
     {
       monthlySpendingCategories: "Savings Short Term",
-      monthlySpendingGoals: "$2,000.00"
+      monthlySpendingGoals: 2000
     },
     {
       monthlySpendingCategories: "Guilt Free Spending",
-      monthlySpendingGoals: "$2,000.00"
+      monthlySpendingGoals: 2000
     },
     {
       monthlySpendingCategories: "Taxes",
-      monthlySpendingGoals: "$4,000.00"
+      monthlySpendingGoals: 4000
     }
   ],
   tableData3: [
     {
-      businessProfitMargins: "50%",
-      annualRevenueNeeded: "$480,000",
-      monthlyRevenueNeeded: "$40,000"
+      businessProfitMargins: .5,
+      annualRevenueNeeded: 480000,
+      monthlyRevenueNeeded: 40000
     }
   ],
   tableData4: [
     {
-      year: "1",
-      savings: "$48,000",
-      monthlyAssetIncome: "$400",
-      annualAssetIncome: "$4,800"
+      year: 1,
+      savings: 48000,
+      monthlyAssetIncome: 400,
+      annualAssetIncome: 48000
     },
     {
-      year: "2",
-      savings: "$100,800",
-      monthlyAssetIncome: "$840",
-      annualAssetIncome: "$10,080"
+      year: 2,
+      savings: 100800,
+      monthlyAssetIncome: 840,
+      annualAssetIncome: 10000
     },
     {
-      year: "3",
-      savings: "$158,880",
-      monthlyAssetIncome: "$1,324",
-      annualAssetIncome: "$15,888"
+      year: 3,
+      savings: 158880,
+      monthlyAssetIncome: 1324,
+      annualAssetIncome: 15888
     },
     {
-      year: "4",
-      savings: "$222,768",
-      monthlyAssetIncome: "$1,856",
-      annualAssetIncome: "$22,277"
+      year: 4,
+      savings: 222768,
+      monthlyAssetIncome: 1856,
+      annualAssetIncome: 22277
     },
     {
-      year: "5",
-      savings: "$293,045",
-      monthlyAssetIncome: "$2,442",
-      annualAssetIncome: "$29,304"
+      year: 5,
+      savings: 293045,
+      monthlyAssetIncome: 2442,
+      annualAssetIncome: 29304
     }
   ]
 };

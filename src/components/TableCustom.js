@@ -6,26 +6,15 @@ import "../styles/inputStyle.css";
 class TableCustom extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      tableData
-    };
+    this.state = { tableData };
     this.onCellChange = this.onCellChange.bind(this);
   }
 
-  handleChange(event) {
-    console.log("onChange Event");
-  }
-
-  onCellChange = (index, value, tableNum, e) => {
-    //console.log("index: ", index, "| value: ", value);
+  onCellChange = (index, value, tableNum) => {
     if (tableNum === 1) {
       let data = [...this.state.tableData.tableData1];
-      //console.log(data[index].fixedCosts);
-      data[index].fixedCosts = value;
-
       if (index !== 10) {
         data[index].fixedCosts = value;
-        //this.setState({ data }); //update fixedCost cell value at index
 
         let total = 0;
         data[10].fixedCosts = total;
@@ -35,8 +24,21 @@ class TableCustom extends Component {
         }
         data[10].fixedCosts = total;
 
-        this.setState({data});
+        this.setState({ data });
       }
+    } else if (tableNum === 2) {
+      //Update table 2 values based on monthly income
+      let data = [...this.state.tableData.tableData2];
+      data[0].monthlyIncome = value;
+      data[0].monthlySpendingGoals = data[0].monthlyIncome * 0.5;
+      data[1].monthlySpendingGoals = data[0].monthlyIncome * 0.1;
+      data[2].monthlySpendingGoals = data[0].monthlyIncome * 0.1;
+      data[3].monthlySpendingGoals = data[0].monthlyIncome * 0.1;
+      data[4].monthlySpendingGoals = data[0].monthlyIncome * 0.2;
+      data[0].personalAnnualIncome = data[0].monthlyIncome * 12;
+      this.setState({ data });
+    } else if (tableNum === 3) {
+    } else if (tableNum === 4) {
     }
   };
 
@@ -60,7 +62,9 @@ class TableCustom extends Component {
                     borderBottom: "none"
                   }}
                   step=".01"
-                  onChange={e => this.onCellChange(index, parseFloat(e.target.value), 1)}
+                  onChange={e =>
+                    this.onCellChange(index, parseFloat(e.target.value), 1)
+                  }
                 />
               </td>
             </tr>
@@ -79,7 +83,21 @@ class TableCustom extends Component {
             <tr key={monthlySpendingCategories}>
               <td>{monthlySpendingCategories}</td>
               <td>{monthlySpendingGoals}</td>
-              <td>{monthlyIncome}</td>
+              <td>
+                <input
+                  type="number"
+                  value={monthlyIncome}
+                  style={{
+                    height: "1rem",
+                    margin: "0 8px 0",
+                    borderBottom: "none"
+                  }}
+                  step=".01"
+                  onChange={e =>
+                    this.onCellChange(index, parseFloat(e.target.value), 2)
+                  }
+                />
+              </td>
               <td>{personalAnnualIncome}</td>
             </tr>
           );

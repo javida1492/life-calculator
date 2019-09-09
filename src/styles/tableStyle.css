@@ -57,6 +57,12 @@
   margin-left: 50px;
 }
 
+/*#monthlyTable tr th:nth-child(0),
+              tr td:nth-child(0)
+{
+  display: none;
+}*/
+
 #fixedCosts{
   border: 1px solid;
   float: left;
