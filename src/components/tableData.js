@@ -15,31 +15,36 @@ export default {
   tableData2: [
     {
       monthlySpendingCategories: "Fixed Costs",
+      monthlySpendingPercentage: 50,
       monthlySpendingGoals: 10000,
       monthlyIncome: 20000,
+      recommendedMonthlyIncome: 72800,
       personalAnnualIncome: 240000
     },
     {
+      monthlySpendingPercentage: 10,
       monthlySpendingCategories: "Long Term Investments",
       monthlySpendingGoals: 2000,
-      recommendedMonthlyIncome: 72800
     },
     {
+      monthlySpendingPercentage: 10,
       monthlySpendingCategories: "Savings Short Term",
       monthlySpendingGoals: 2000
     },
     {
+      monthlySpendingPercentage: 10,
       monthlySpendingCategories: "Guilt Free Spending",
       monthlySpendingGoals: 2000
     },
     {
+      monthlySpendingPercentage: 20,
       monthlySpendingCategories: "Taxes",
       monthlySpendingGoals: 4000
     }
   ],
   tableData3: [
     {
-      businessProfitMargins: .5,
+      businessProfitMargins: 50,
       annualRevenueNeeded: 480000,
       monthlyRevenueNeeded: 40000
     }
