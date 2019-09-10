@@ -1,0 +1,14 @@
+TODO: Add editable percentages for monthly spending goals in table 2
+TODO: Add percentage modifier for monthly & annual in table 4
+
+TODO: Update table render header function 
+
+TODO: Can probably make a new function, updateCells, which does all the cell updating at one time
+       - Break out updateCell functionality into sub-functions for updating each table independantly and call the update functions as needed inside the other functions.
+
+TODO: Add black background styling to non-editable automatically updated cells
+      - Add styling for editable cells
+
+TODO: Remove extra input cells from monthly spending goals.
+
+TODO: Add feature to add more categories to table 1 (last-priority).
