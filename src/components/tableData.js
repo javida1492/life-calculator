@@ -52,6 +52,7 @@ export default {
   tableData4: [
     {
       year: 1,
+      percentReturn: 10,
       savings: 48000,
       monthlyAssetIncome: 400,
       annualAssetIncome: 48000
