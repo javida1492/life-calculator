@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import tableData from "./tableData";
-import * as updateTable from "../utils/updateTable";
 import "../styles/tableStyle.css";
 import "../styles/inputStyle.css";
 
@@ -27,51 +26,42 @@ class TableCustom extends Component {
     }
   }
 
-  updateTable2(index, value, columnIndex) {
+  updateTable2(index, value) {
     //Update table 2 values based on monthly income
     let dataT2 = [...this.state.tableData.tableData2];
-    if (columnIndex === 4) {
-      //Update monthly income
-      dataT2[0].monthlyIncome = value;
-      this.setState({ dataT2 });
-      this.updateMonthlyGoals();
-      this.updateTable3(value, 1);
-    } else {
-      //Update monthly percentage
-      console.log(index);
-      dataT2[index].monthlySpendingPercentage = value; //Update percentage
-      let percentageTotal = 0;
-      for (var i = 0; i < 5; i++) {
-        percentageTotal += dataT2[i].monthlySpendingPercentage;
-      }
-      if (percentageTotal > 100) {
-        alert("Monthly Spending Percentage must not exceed 100%!");
-      }
-
-      this.setState({ dataT2 });
-      this.updateMonthlyGoals(); //Recalculate monthly spending goals
-      this.updateTable4();
+    //Update monthly percentage
+    dataT2[index].monthlySpendingPercentage = value; //Update percentage
+    let percentageTotal = 0;
+    for (var i = 0; i < 5; i++) {
+      percentageTotal += dataT2[i].monthlySpendingPercentage;
     }
+    if (percentageTotal > 100) {
+      alert("Monthly Spending Percentage must not exceed 100%!");
+    }
+
+    this.setState({ dataT2 });
+    this.updateMonthlyGoals(); //Recalculate monthly spending goals
+    this.updateTable4();
   }
 
   updateMonthlyGoals() {
     let data = [...this.state.tableData.tableData2];
+    let dataT5 = [...this.state.tableData.tableData5]
     for (var i = 0; i < 5; i++) {
       data[i].monthlySpendingGoals =
-        data[0].monthlyIncome * (data[i].monthlySpendingPercentage/100);
+        dataT5[0].monthlyIncome * (data[i].monthlySpendingPercentage / 100);
     }
-    data[0].personalAnnualIncome = data[0].monthlyIncome * 12;
     this.setState({ data });
   }
 
   updateTable3(value, call) {
-    let dataT2 = [...this.state.tableData.tableData2];
+    let dataT5 = [...this.state.tableData.tableData5];
     let dataT3 = [...this.state.tableData.tableData3];
     if (!call) {
       dataT3[0].businessProfitMargins = value;
     }
     dataT3[0].annualRevenueNeeded =
-      dataT2[0].personalAnnualIncome / (dataT3[0].businessProfitMargins / 100);
+      dataT5[0].personalAnnualIncome / (dataT3[0].businessProfitMargins / 100);
     dataT3[0].monthlyRevenueNeeded = dataT3[0].annualRevenueNeeded / 12;
     this.setState({ dataT3 });
   }
@@ -88,7 +78,7 @@ class TableCustom extends Component {
           12;
       } else {
         compoundTotal += dataT4[i - 1].annualAssetIncome;
-        dataT4[i].savings = dataT4[0].savings * (i+1) + compoundTotal;
+        dataT4[i].savings = dataT4[0].savings * (i + 1) + compoundTotal;
       }
       console.log(dataT4[0].percentReturn);
       dataT4[i].monthlyAssetIncome =
@@ -101,12 +91,22 @@ class TableCustom extends Component {
     this.setState({ dataT4 });
   }
 
+  updateTable5(value) {
+    let data = [...this.state.tableData.tableData5];
+    data[0].monthlyIncome = value;
+    data[0].personalAnnualIncome = data[0].monthlyIncome * 12;
+
+    this.setState({ data });
+    this.updateMonthlyGoals();
+    this.updateTable3(value, 1);
+  }
+
   // TODO - Fix the updateTable functions
-  onCellChange = (index, value, tableNum, columnIndex) => {
+  onCellChange = (index, value, tableNum) => {
     if (tableNum === 1) {
       this.updateTable1(index, value);
     } else if (tableNum === 2) {
-      this.updateTable2(index, value, columnIndex);
+      this.updateTable2(index, value);
     } else if (tableNum === 3) {
       this.updateTable3(value);
     } else if (tableNum === 4) {
@@ -114,6 +114,8 @@ class TableCustom extends Component {
       data[0].percentReturn = value;
       this.setState({ data });
       this.updateTable4();
+    } else if (tableNum === 5) {
+      this.updateTable5(value);
     }
   };
 
@@ -125,17 +127,16 @@ class TableCustom extends Component {
         return myTable.map((data, index) => {
           const { category, fixedCosts } = data; //destructuring
           return (
-            <tr key={category}>
+            <tr
+              key={category}
+              style={{ backgroundColor: "black" }}
+              class="white-text"
+            >
               <td>{category}</td>
               <td>
                 <input
                   type="number"
                   value={fixedCosts}
-                  style={{
-                    height: "1rem",
-                    margin: "0 8px 0",
-                    borderBottom: "none"
-                  }}
                   step=".01"
                   onChange={e =>
                     this.onCellChange(index, parseFloat(e.target.value), 1)
@@ -151,10 +152,7 @@ class TableCustom extends Component {
           const {
             monthlySpendingCategories,
             monthlySpendingPercentage,
-            monthlySpendingGoals,
-            monthlyIncome,
-            recommendedMonthlyIncome,
-            personalAnnualIncome
+            monthlySpendingGoals
           } = data; //destructuring
           return (
             <tr key={monthlySpendingCategories}>
@@ -163,11 +161,6 @@ class TableCustom extends Component {
                 <input
                   type="number"
                   value={monthlySpendingPercentage}
-                  style={{
-                    height: "1rem",
-                    margin: "0 8px 0",
-                    borderBottom: "none"
-                  }}
                   step=".01"
                   onChange={e =>
                     this.onCellChange(index, parseFloat(e.target.value), 2)
@@ -175,23 +168,6 @@ class TableCustom extends Component {
                 />
               </td>
               <td>{monthlySpendingGoals}</td>
-              <td>
-                <input
-                  type="number"
-                  value={monthlyIncome}
-                  style={{
-                    height: "1rem",
-                    margin: "0 8px 0",
-                    borderBottom: "none"
-                  }}
-                  step=".01"
-                  onChange={e =>
-                    this.onCellChange(index, parseFloat(e.target.value), 2, 4)
-                  }
-                />
-              </td>
-              <td>{recommendedMonthlyIncome}</td>
-              <td>{personalAnnualIncome}</td>
             </tr>
           );
         });
@@ -209,11 +185,6 @@ class TableCustom extends Component {
                 <input
                   type="number"
                   value={businessProfitMargins}
-                  style={{
-                    height: "1rem",
-                    margin: "0 8px 0",
-                    borderBottom: "none"
-                  }}
                   step=".01"
                   onChange={e =>
                     this.onCellChange(index, parseFloat(e.target.value), 3)
@@ -249,18 +220,37 @@ class TableCustom extends Component {
                 <input
                   type="number"
                   value={percentReturn}
-                  style={{
-                    height: "1rem",
-                    margin: "0 8px 0",
-                    borderBottom: "none",
-                    backgroundColor: "white"
-                  }}
                   step=".01"
                   onChange={e =>
                     this.onCellChange(index, parseFloat(e.target.value), 4)
                   }
                 />
               </td>
+            </tr>
+          );
+        });
+      case 5:
+        myTable = this.state.tableData.tableData5;
+        return myTable.map((data, index) => {
+          const {
+            monthlyIncome,
+            recommendedMonthlyIncome,
+            personalAnnualIncome
+          } = data; //destructuring
+          return (
+            <tr>
+              <td>
+                <input
+                  type="number"
+                  value={monthlyIncome}
+                  step=".01"
+                  onChange={e =>
+                    this.onCellChange(index, parseFloat(e.target.value), 5)
+                  }
+                />
+              </td>
+              <td>{recommendedMonthlyIncome}</td>
+              <td>{personalAnnualIncome}</td>
             </tr>
           );
         });
@@ -284,49 +274,50 @@ class TableCustom extends Component {
       case 4:
         myTable = this.state.tableData.tableData4[0];
         break;
+      case 5:
+        myTable = this.state.tableData.tableData5[0];
+        break;
       default:
         break;
     }
     let header = Object.keys(myTable);
     return header.map((key, index) => {
-      return (
-        <th
-          key={index}
-          class="white-text"
-          style={{ backgroundColor: "black", borderColor: "white" }}
-        >
-          {key.toUpperCase()}
-        </th>
-      );
+      return <th key={index}>{key.toUpperCase()}</th>;
     });
   }
 
   render() {
     return (
       <div>
-        <table id="fixedCosts" class="striped">
-          <tbody>
+        <table id="fixedCosts">
+          <thead>
             <tr>{this.renderTableHeader(1)}</tr>
-            {this.renderTableData(1)}
-          </tbody>
+          </thead>
+          {this.renderTableData(1)}
         </table>
-        <table id="monthlyTable" class="striped">
-          <tbody>
+        <table id="monthlyTable">
+          <thead>
             <tr>{this.renderTableHeader(2)}</tr>
-            {this.renderTableData(2)}
-          </tbody>
+          </thead>
+          {this.renderTableData(2)}
         </table>
-        <table id="profitMargins">
-          <tbody>
-            <tr>{this.renderTableHeader(3)}</tr>
-            {this.renderTableData(3)}
-          </tbody>
+        <table id="incomeTable">
+          <thead>
+            <tr>{this.renderTableHeader(5)}</tr>
+          </thead>
+          {this.renderTableData(5)}
         </table>
         <table id="assetsTable">
-          <tbody>
+          <thead>
             <tr>{this.renderTableHeader(4)}</tr>
-            {this.renderTableData(4)}
-          </tbody>
+          </thead>
+          {this.renderTableData(4)}
+        </table>
+        <table id="profitMargins">
+          <thead>
+            <tr>{this.renderTableHeader(3)}</tr>
+          </thead>
+          {this.renderTableData(3)}
         </table>
       </div>
     );

@@ -16,15 +16,12 @@ export default {
     {
       monthlySpendingCategories: "Fixed Costs",
       monthlySpendingPercentage: 50,
-      monthlySpendingGoals: 10000,
-      monthlyIncome: 20000,
-      recommendedMonthlyIncome: 72800,
-      personalAnnualIncome: 240000
+      monthlySpendingGoals: 10000
     },
     {
       monthlySpendingPercentage: 10,
       monthlySpendingCategories: "Long Term Investments",
-      monthlySpendingGoals: 2000,
+      monthlySpendingGoals: 2000
     },
     {
       monthlySpendingPercentage: 10,
@@ -54,14 +51,14 @@ export default {
       year: 1,
       savings: 48000,
       monthlyAssetIncome: 400,
-      annualAssetIncome: 48000,
+      annualAssetIncome: 4800,
       percentReturn: 10
     },
     {
       year: 2,
       savings: 100800,
       monthlyAssetIncome: 840,
-      annualAssetIncome: 10000
+      annualAssetIncome: 10080
     },
     {
       year: 3,
@@ -80,6 +77,13 @@ export default {
       savings: 293045,
       monthlyAssetIncome: 2442,
       annualAssetIncome: 29304
+    }
+  ],
+  tableData5: [
+    {
+      monthlyIncome: 20000,
+      recommendedMonthlyIncome: 72800,
+      personalAnnualIncome: 240000
     }
   ]
 };

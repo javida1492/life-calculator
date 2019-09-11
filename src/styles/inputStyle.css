@@ -6,15 +6,19 @@ input::-webkit-inner-spin-button {
 }
 
 input[type=number] {
-    -moz-appearance:textfield; /* Firefox */
+    -moz-appearance:textfield;
 }
 
-input[type=number] {
-    width: 50%;
-    margin: 8px 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #3CBC8D;
-    height: 1rem;
+input{
+    font-size: 20px;
+    width: 40%;
 }
 
+/*
+height: "1rem",
+margin: "0 8px 0",
+borderBottom: "none",
+backgroundColor: "black",
+width: "80%",
+color: "white"
+*/
