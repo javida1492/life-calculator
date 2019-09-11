@@ -42,11 +42,12 @@ class TableCustom extends Component {
     this.setState({ dataT2 });
     this.updateMonthlyGoals(); //Recalculate monthly spending goals
     this.updateTable4();
+    this.updateTable5(value, 1);
   }
 
   updateMonthlyGoals() {
     let data = [...this.state.tableData.tableData2];
-    let dataT5 = [...this.state.tableData.tableData5]
+    let dataT5 = [...this.state.tableData.tableData5];
     for (var i = 0; i < 5; i++) {
       data[i].monthlySpendingGoals =
         dataT5[0].monthlyIncome * (data[i].monthlySpendingPercentage / 100);
@@ -91,14 +92,21 @@ class TableCustom extends Component {
     this.setState({ dataT4 });
   }
 
-  updateTable5(value) {
+  updateTable5(value, call) {
     let data = [...this.state.tableData.tableData5];
-    data[0].monthlyIncome = value;
-    data[0].personalAnnualIncome = data[0].monthlyIncome * 12;
-
-    this.setState({ data });
-    this.updateMonthlyGoals();
-    this.updateTable3(value, 1);
+    let dataT1 = [...this.state.tableData.tableData1];
+    let dataT2 = [...this.state.tableData.tableData2];
+    if (call) {
+      data[0].recommendedMonthlyIncome =
+        dataT1[10].fixedCosts / (dataT2[0].monthlySpendingPercentage / 100);
+      this.setState({ data });
+    } else {
+      data[0].monthlyIncome = value;
+      data[0].personalAnnualIncome = data[0].monthlyIncome * 12;
+      this.setState({ data });
+      this.updateMonthlyGoals();
+      this.updateTable3(value, 1);
+    }
   }
 
   // TODO - Fix the updateTable functions
@@ -176,8 +184,8 @@ class TableCustom extends Component {
         return myTable.map((data, index) => {
           const {
             businessProfitMargins,
-            annualRevenueNeeded,
-            monthlyRevenueNeeded
+            monthlyRevenueNeeded,
+            annualRevenueNeeded
           } = data; //destructuring
           return (
             <tr key={businessProfitMargins}>
@@ -191,8 +199,8 @@ class TableCustom extends Component {
                   }
                 />
               </td>
-              <td>{annualRevenueNeeded}</td>
               <td>{monthlyRevenueNeeded}</td>
+              <td>{annualRevenueNeeded}</td>
             </tr>
           );
         });
@@ -295,17 +303,17 @@ class TableCustom extends Component {
           </thead>
           {this.renderTableData(1)}
         </table>
-        <table id="monthlyTable">
-          <thead>
-            <tr>{this.renderTableHeader(2)}</tr>
-          </thead>
-          {this.renderTableData(2)}
-        </table>
         <table id="incomeTable">
           <thead>
             <tr>{this.renderTableHeader(5)}</tr>
           </thead>
           {this.renderTableData(5)}
+        </table>
+        <table id="monthlyTable">
+          <thead>
+            <tr>{this.renderTableHeader(2)}</tr>
+          </thead>
+          {this.renderTableData(2)}
         </table>
         <table id="assetsTable">
           <thead>

@@ -42,8 +42,8 @@ export default {
   tableData3: [
     {
       businessProfitMargins: 50,
-      annualRevenueNeeded: 480000,
-      monthlyRevenueNeeded: 40000
+      monthlyRevenueNeeded: 40000,
+      annualRevenueNeeded: 480000
     }
   ],
   tableData4: [
@@ -82,7 +82,7 @@ export default {
   tableData5: [
     {
       monthlyIncome: 20000,
-      recommendedMonthlyIncome: 72800,
+      recommendedMonthlyIncome: 70800,
       personalAnnualIncome: 240000
     }
   ]
