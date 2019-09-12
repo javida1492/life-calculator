@@ -47,13 +47,13 @@ class TableCustom extends Component {
   }
 
   updateMonthlyGoals() {
-    let data = [...this.state.tableData.tableData2];
+    let dataT2 = [...this.state.tableData.tableData2];
     let dataT5 = [...this.state.tableData.tableData5];
     for (var i = 0; i < 5; i++) {
-      data[i].monthlySpendingGoals =
-        dataT5[0].monthlyIncome * (data[i].monthlySpendingPercentage / 100);
+      dataT2[i].monthlySpendingGoals =
+        dataT5[0].monthlyIncome * (dataT2[i].monthlySpendingPercentage / 100);
     }
-    this.setState({ data });
+    this.setState({ dataT2 });
   }
 
   updateTable3(value, call) {
@@ -268,6 +268,32 @@ class TableCustom extends Component {
     }
   }
 
+  renderTableHeaders(table){
+    let myTable;
+    switch (table) {
+      case 1:
+        myTable = this.state.tableData.headerTable[0];
+        break;
+      case 2:
+        myTable = this.state.tableData.headerTable[1];
+        break;
+      case 3:
+        myTable = this.state.tableData.headerTable[2];
+        break;
+      case 4:
+        myTable = this.state.tableData.headerTable[3];
+        break;
+      case 5:
+        myTable = this.state.tableData.headerTable[4];
+        break;
+      default:
+        break;
+  }
+  return myTable.map((key,index) => {
+    return <th key={index}>{key}</th>;
+  }) 
+}
+  
   renderTableHeader(table) {
     let myTable;
     switch (table) {
@@ -300,31 +326,31 @@ class TableCustom extends Component {
       <div>
         <table id="fixedCosts">
           <thead>
-            <tr>{this.renderTableHeader(1)}</tr>
+            <tr>{this.renderTableHeaders(1)}</tr>
           </thead>
           {this.renderTableData(1)}
         </table>
         <table id="incomeTable">
           <thead>
-            <tr>{this.renderTableHeader(5)}</tr>
+            <tr>{this.renderTableHeaders(5)}</tr>
           </thead>
           {this.renderTableData(5)}
         </table>
         <table id="monthlyTable">
           <thead>
-            <tr>{this.renderTableHeader(2)}</tr>
+            <tr>{this.renderTableHeaders(2)}</tr>
           </thead>
           {this.renderTableData(2)}
         </table>
         <table id="assetsTable">
           <thead>
-            <tr>{this.renderTableHeader(4)}</tr>
+            <tr>{this.renderTableHeaders(4)}</tr>
           </thead>
           {this.renderTableData(4)}
         </table>
         <table id="profitMargins">
           <thead>
-            <tr>{this.renderTableHeader(3)}</tr>
+            <tr>{this.renderTableHeaders(3)}</tr>
           </thead>
           {this.renderTableData(3)}
         </table>

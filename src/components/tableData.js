@@ -85,5 +85,13 @@ export default {
       recommendedMonthlyIncome: 70800,
       personalAnnualIncome: 240000
     }
+  ],
+  headerTable:[
+    ["Category", "Fixed Costs"],
+    ["Monthly Income", "Recommended Monthly Income", "Personal Annual Income"],
+    ["Monthly Spending Categories", "Monthly Spending Percentages", "Monthly Spending Goals"],
+    ["Year", "Savings", "Monthly Assets Income", "Annual Assets Income", "Percent Return"],
+    ["Business Profit Margins", "Monthly Revenue Needed", "Annual Revenue Needed"]
   ]
+
 };

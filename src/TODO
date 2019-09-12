@@ -1,28 +1,49 @@
-TODO: Add editable percentages for monthly spending goals in table 2
+TODO:
+    Add editable percentages for monthly spending goals in table 2
     @Finished 9/10/2019
 
-TODO: Add percentage modifier for monthly & annual in table 4
+TODO:
+    Add percentage modifier for monthly & annual in table 4
     @Finished 9/10/2019
 
+TODO:
+    Update table render header function 
 
-TODO: Update table render header function 
-
-
-TODO: Can probably make a new function, updateCells, which does all the cell updating at one time
-       - Break out updateCell functionality into sub-functions for updating each table independantly and call the update functions as needed inside the other functions.
+TODO:
+    Can probably make a new function, updateCells, which does all the cell updating at one time
+    Break out updateCell functionality into sub-functions for updating each table independantly and call the update functions as needed inside the other functions.
     @Finished 9/10/2019
 
+TODO:
+    Add black background styling to non-editable automatically updated cells
+       Add styling for editable cells
+    @Finished 9/11
 
-TODO: Add black background styling to non-editable automatically updated cells
-      - Add styling for editable cells
+TODO: 
+    Remove extra input cells from monthly spending goals.
+    @Finished 9/12
 
-TODO: Remove extra input cells from monthly spending goals.
+TODO: 
+    Add feature to add more categories to table 1 (last-priority).
 
-TODO: Add feature to add more categories to table 1 (last-priority).
+TODO: 
+    Make logo centered based on screen size
+        Add padding between tables when they collapse.
+    @Finished 9/11
 
-TODO: Make logo centered based on screen size
-      Add padding between tables when they collapse.
+TODO: 
+    Fix recommended monthly income calculation
+    @Finished 9/12
 
-TODO: Fix recommended monthly income calculation
+TODO: 
+    Fix profit margins table input field focus
+    Note:
+        Not sure wtf is going on here, but my guess is that the onChange event
+        is telling React to re-render the element everytime it changes, causing
+        it to lose focus after a change. But then the question is why this doesnt
+        happen to the other input fields, unless it has to do with the fact that
+        the other input fields call other update methods which for some reason is
+        telling react to re-re-render??? Idk.
 
-TODO: Fix profit margins table input field focus
+TODO:
+    Add percent and $ text to where ever applicable.
