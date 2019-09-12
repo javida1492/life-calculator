@@ -23,6 +23,7 @@ class TableCustom extends Component {
       }
       data[10].fixedCosts = total;
       this.setState({ data });
+      this.updateTable5(value, 1);
     }
   }
 
