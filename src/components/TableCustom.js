@@ -268,32 +268,32 @@ class TableCustom extends Component {
     }
   }
 
-  renderTableHeaders(table){
+  renderTableHeaders(table) {
     let myTable;
     switch (table) {
       case 1:
         myTable = this.state.tableData.headerTable[0];
         break;
       case 2:
-        myTable = this.state.tableData.headerTable[1];
+        myTable = this.state.tableData.headerTable[2];
         break;
       case 3:
-        myTable = this.state.tableData.headerTable[2];
+        myTable = this.state.tableData.headerTable[4];
         break;
       case 4:
         myTable = this.state.tableData.headerTable[3];
         break;
       case 5:
-        myTable = this.state.tableData.headerTable[4];
+        myTable = this.state.tableData.headerTable[1];
         break;
       default:
         break;
+    }
+    return myTable.map((key, index) => {
+      return <th key={index}>{key}</th>;
+    });
   }
-  return myTable.map((key,index) => {
-    return <th key={index}>{key}</th>;
-  }) 
-}
-  
+
   renderTableHeader(table) {
     let myTable;
     switch (table) {
