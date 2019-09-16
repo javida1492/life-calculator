@@ -17,6 +17,8 @@ table {
 td {
   border: 3px solid #ddd;
   padding: 8px;
+  font-size: 18px;
+  color: #f4f4f4f4;
 }
 
 th {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TableCustom from "./components/TableCustom";
+import Table from "./components/Table";
 import Image from "react-image-resizer";
 
 import logo from "./image1.png";
@@ -7,7 +7,7 @@ import logo from "./image1.png";
 class App extends Component {
   render() {
     return (
-      <div className="Logo">
+      <div className="page">
         <Image
           height={120}
           width={750}
@@ -27,7 +27,9 @@ class App extends Component {
         >
           Ideal Life Calculator
         </h1>
-        <TableCustom />
+        <div className="table">
+          <Table />
+        </div>
       </div>
     );
   }
