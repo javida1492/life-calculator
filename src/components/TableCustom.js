@@ -294,7 +294,9 @@ class TableCustom extends Component {
     });
   }
 
-  renderTableHeader(table) {
+  // Not using this function anymore since it would render the headers based on the object names, which werent style-able.
+  // Might revisit in the future since I...may be wrong about this LOL
+  /*renderTableHeader(table) {
     let myTable;
     switch (table) {
       case 1:
@@ -319,7 +321,7 @@ class TableCustom extends Component {
     return header.map((key, index) => {
       return <th key={index}>{key.toUpperCase()}</th>;
     });
-  }
+  }*/
 
   render() {
     return (
