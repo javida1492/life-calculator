@@ -40,7 +40,7 @@ TODO:
 TODO: 
     Fix profit margins table input field focus
     ⬜ Note:
-        Not sure wtf is going on here, but my guess is that the onChange event is telling React to re-render the element everytime it changes, causing
+        Not sure what is going on here, but my guess is that the onChange event is telling React to re-render the element everytime it changes, causing
         it to lose focus after a change. But then the question is why this doesnt happen to the other input fields, unless it has to do with the fact 
         that the other input fields call other update methods which for some reason is telling react to re-re-render??? Idk.
 
@@ -51,5 +51,6 @@ TODO:
     Update website tab logo to Groundbreakers logo.
     @Finished 9/16
 	
-TODO: 
-	Update background to be an off-white color.
+✔ TODO: 
+    Update background to be an off-white color.
+    @Finished 9/17
