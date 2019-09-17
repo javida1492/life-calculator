@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dbff3e35dbed79df7fb2f716a6d620c9",
+    "revision": "cf53faad1177f2e2a1a6d27c5099ae84",
     "url": "/life-calculator/index.html"
   },
   {
-    "revision": "16efde4f5eec96861b94",
-    "url": "/life-calculator/static/css/main.aa7f0c74.chunk.css"
+    "revision": "57c36d7ad7059cb53aaf",
+    "url": "/life-calculator/static/css/main.5d355175.chunk.css"
   },
   {
     "revision": "718468133d012f44fd88",
     "url": "/life-calculator/static/js/2.62f8b316.chunk.js"
   },
   {
-    "revision": "16efde4f5eec96861b94",
+    "revision": "57c36d7ad7059cb53aaf",
     "url": "/life-calculator/static/js/main.fa2f7317.chunk.js"
   },
   {

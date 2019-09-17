@@ -1,16 +1,12 @@
 {
   "files": {
-    "main.css": "/life-calculator/static/css/main.aa7f0c74.chunk.css",
+    "main.css": "/life-calculator/static/css/main.5d355175.chunk.css",
     "main.js": "/life-calculator/static/js/main.fa2f7317.chunk.js",
-    "main.js.map": "/life-calculator/static/js/main.fa2f7317.chunk.js.map",
     "runtime~main.js": "/life-calculator/static/js/runtime~main.df891960.js",
-    "runtime~main.js.map": "/life-calculator/static/js/runtime~main.df891960.js.map",
     "static/js/2.62f8b316.chunk.js": "/life-calculator/static/js/2.62f8b316.chunk.js",
-    "static/js/2.62f8b316.chunk.js.map": "/life-calculator/static/js/2.62f8b316.chunk.js.map",
     "index.html": "/life-calculator/index.html",
-    "precache-manifest.e63336ccab1395c085c72baff27cbda0.js": "/life-calculator/precache-manifest.e63336ccab1395c085c72baff27cbda0.js",
+    "precache-manifest.b87c0fe24488ed35b147307ef9087e58.js": "/life-calculator/precache-manifest.b87c0fe24488ed35b147307ef9087e58.js",
     "service-worker.js": "/life-calculator/service-worker.js",
-    "static/css/main.aa7f0c74.chunk.css.map": "/life-calculator/static/css/main.aa7f0c74.chunk.css.map",
     "static/media/image1.png": "/life-calculator/static/media/image1.b1c312d4.png"
   }
 }
