@@ -364,4 +364,8 @@ class Table extends Component {
   }
 }
 
+const Input = ({ onChange, value }) => (
+  <input type="number" step=".01" onChange={onChange} value={value} />
+);
+
 export default Table;
