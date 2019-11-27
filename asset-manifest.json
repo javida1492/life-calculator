@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/life-calculator/static/css/main.5d355175.chunk.css",
-    "main.js": "/life-calculator/static/js/main.fa2f7317.chunk.js",
+    "main.css": "/life-calculator/static/css/main.5db7f529.chunk.css",
+    "main.js": "/life-calculator/static/js/main.c1f98700.chunk.js",
     "runtime~main.js": "/life-calculator/static/js/runtime~main.df891960.js",
-    "static/js/2.62f8b316.chunk.js": "/life-calculator/static/js/2.62f8b316.chunk.js",
+    "static/js/2.69982e20.chunk.js": "/life-calculator/static/js/2.69982e20.chunk.js",
     "index.html": "/life-calculator/index.html",
-    "precache-manifest.f5975a8ff3e61c830e91234106ab6f3f.js": "/life-calculator/precache-manifest.f5975a8ff3e61c830e91234106ab6f3f.js",
+    "precache-manifest.e1d3f349e50bdccc53e20467e47b3ac2.js": "/life-calculator/precache-manifest.e1d3f349e50bdccc53e20467e47b3ac2.js",
     "service-worker.js": "/life-calculator/service-worker.js",
     "static/media/image1.png": "/life-calculator/static/media/image1.b1c312d4.png"
   }
