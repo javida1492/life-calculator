@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4d8bf6eae3b6435bc0fe936cfe1007c6",
+    "revision": "14683e883ef83a061d1a2e1b4c595e24",
     "url": "/life-calculator/index.html"
   },
   {
-    "revision": "91ff6bb5bb1461d10055",
+    "revision": "18ace44f492b15023512",
     "url": "/life-calculator/static/css/main.5db7f529.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/life-calculator/static/js/2.69982e20.chunk.js"
   },
   {
-    "revision": "91ff6bb5bb1461d10055",
-    "url": "/life-calculator/static/js/main.c1f98700.chunk.js"
+    "revision": "18ace44f492b15023512",
+    "url": "/life-calculator/static/js/main.fa167d3d.chunk.js"
   },
   {
     "revision": "3a955af195290f39b88b",
