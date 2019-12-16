@@ -56,6 +56,7 @@ function updateIncomeData(tableTuple, newValue) {
   incomeDataTable[1][2].result = incomeDataTable[1][0].value * 12;
   tableDataCopy["incomeData"] = incomeDataTable;
   tableDataCopy = updateBusinessRevenue(tableDataCopy);
+  tableDataCopy = updateMonthlyGoals(tableDataCopy);
   return tableDataCopy;
 }
 
@@ -175,7 +176,7 @@ function updateRecommendedIncome(tableDataCopy) {
 function updateMonthlyGoals(tableDataCopy) {
   let monthlySpendingData = tableDataCopy["monthlySpendingData"];
   let incomeDataTable = tableDataCopy["incomeData"];
-  for (var i = 1; i < monthlySpendingData[1].length; i++) {
+  for (var i = 1; i < monthlySpendingData.length; i++) {
     monthlySpendingData[i][2].result =
       incomeDataTable[1][0].value * (monthlySpendingData[i][1].value / 100);
   }
