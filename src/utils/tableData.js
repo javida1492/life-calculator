@@ -4,14 +4,15 @@ export default {
     [{ id: "Rent/Mortgages" }, { value: 20000 }],
     [{ id: "Utilities" }, { value: 5000 }],
     [{ id: "Cell Phone" }, { value: 250 }],
-    [{ id: "Health Insurance" }, { value: 1250 }],
+    [{ id: "Health Insurance" }, { value: 1500 }],
     [{ id: "Car Payments" }, { value: 4000 }],
     [{ id: "Gas" }, { value: 1000 }],
     [{ id: "Food" }, { value: 1500 }],
-    [{ id: "Clothes" }, { value: 1000 }],
+    [{ id: "Clothes" }, { value: 500 }],
     [{ id: "Subscriptions" }, { value: 1000 }],
-    [{ id: "Car Insurance" }, { value: 400 }],
-    [{ id: "Total" }, { result: 35400 }]
+    [{ id: "Car Insurance" }, { value: 500 }],
+    [{ id: "Travel" }, { value: 1000 }],
+    [{ id: "Total" }, { result: 36250 }]
   ],
   incomeData: [
     [

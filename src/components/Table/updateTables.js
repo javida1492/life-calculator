@@ -35,7 +35,7 @@ function updateFixedCostsData(tableTuple, newValue) {
   fixedCostsTable[fixedCostsTable.length - 1][1].result = calculateNewResult(
     fixedCostsTable
   );
-  //Update Recommended Monthly Income2
+  //Update Recommended Monthly Income
   tableDataCopy["incomeData"] = updateRecommendedIncome(tableDataCopy);
   tableDataCopy["fixedCostsData"] = fixedCostsTable;
 
@@ -57,6 +57,8 @@ function updateIncomeData(tableTuple, newValue) {
   tableDataCopy["incomeData"] = incomeDataTable;
   tableDataCopy = updateBusinessRevenue(tableDataCopy);
   tableDataCopy = updateMonthlyGoals(tableDataCopy);
+  tableDataCopy = updateAssetsData(tableDataCopy);
+
   return tableDataCopy;
 }
 
@@ -160,11 +162,11 @@ function updateRecommendedIncome(tableDataCopy) {
   const fixedCostsTable = tableDataCopy["fixedCostsData"];
   const fixedCostsTotal = fixedCostsTable[fixedCostsTable.length - 1][1].result;
 
-  const monthlySpendingData = tableDataCopy["monthlySpendingData"];
-  const monthlySpendingPercentage = monthlySpendingData[1][1].value / 100;
+  //const monthlySpendingData = tableDataCopy["monthlySpendingData"];
+  //const monthlySpendingPercentage = monthlySpendingData[1][1].value / 100;
 
   const incomeDataTable = tableDataCopy["incomeData"];
-  incomeDataTable[1][1].result = fixedCostsTotal / monthlySpendingPercentage;
+  incomeDataTable[1][1].result = fixedCostsTotal * 2;/// monthlySpendingPercentage;
   return incomeDataTable;
 }
 
@@ -220,20 +222,30 @@ function updateAssetsData(tableDataCopy) {
   //Update annual savings data
   for (let i = 1; i < assetsDataTable.length; i++) {
     if (i === 1) {
-      assetsDataTable[i + 1][1].result =
+      assetsDataTable[i][1].result =
         (monthlySpendingTable[2][2].result +
           monthlySpendingTable[3][2].result) *
         12;
+        console.log("Assets Data Table[1][1]:" + assetsDataTable[i][1].result);
+
     } else {
-      compoundTotal += assetsDataTable[i - 1][3].result;
-      assetsDataTable[i][3].result =
-        assetsDataTable[1].result * (i + 1) + compoundTotal;
+      console.log("Compound total:" + compoundTotal);
+      console.log("Assets Data Table[1][1]:" + assetsDataTable[1][1].result);
+      compoundTotal += assetsDataTable[i-1][3].result;
+      assetsDataTable[i][1].result =
+        assetsDataTable[1][1].result * i + compoundTotal;
+      console.log("Assets Data Table[i][1]:" + assetsDataTable[i][1].result);
     }
+    
     //Update monthly asset income
     assetsDataTable[i][2].result =
       assetsDataTable[i][1].result * (percentReturn / 12);
+    console.log("Assets Data Table[i][2]:" + assetsDataTable[i][2].result);
+      
     //Update annual asset income
     assetsDataTable[i][3].result = assetsDataTable[i][1].result * percentReturn;
+    console.log("Assets Data Table[i][3]:" + assetsDataTable[i][3].result);
+
   }
   tableDataCopy["assetsData"] = assetsDataTable;
   return tableDataCopy;
