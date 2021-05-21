@@ -10,15 +10,13 @@ class Tables extends Component {
     this.onCellChange = this.onCellChange.bind(this);
   }
 
-  //TODO: This can be improved - Something is not write here
-  //      as far as the object copy-updating goes
-  onCellChange = (tableId, rowIdx, cellIdx) => e => {
+  onCellChange = (tableId, rowIdx, cellIdx) => (e) => {
     const value = parseFloat(e.target.value);
     const tableDataCopy = { ...this.state.tableData }; //Copy the state table object
     const tableTuple = { rowIdx, cellIdx, value, tableDataCopy, tableId };
     console.log(tableDataCopy);
     let newTableData = updateInput(tableTuple);
-    this.setState(prevState => ({ tableData: newTableData }));
+    this.setState((prevState) => ({ tableData: newTableData }));
   };
 
   render() {
