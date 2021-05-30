@@ -2,7 +2,7 @@
 
 https://gb-life-calculator.herokuapp.com/
 
-Simple calculator app built at the request of [https://www.groundbreakersmarketing.com/](Groundbreakers Marketing).
+Simple calculator app built at the request of [Groundbreakers Marketing](https://www.groundbreakersmarketing.com/).
 
 Tech Stack:
 * JavaScript/ES6
