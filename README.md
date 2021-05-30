@@ -1,8 +1,8 @@
 ## Ideal Life Calculator - Groundbreakers Marketing ##
 
-https://gb-life-calculator.herokuapp.com/
+[Live Demo](https://gb-life-calculator.herokuapp.com/)
 
-Simple calculator app built at the request of [Groundbreakers Marketing](https://www.groundbreakersmarketing.com/).
+Life expense & income estimator app built at the request of [Groundbreakers Marketing](https://www.groundbreakersmarketing.com/).
 
 Tech Stack:
 * JavaScript/ES6
